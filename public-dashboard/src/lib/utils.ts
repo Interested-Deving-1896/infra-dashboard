@@ -33,12 +33,21 @@ export function convertURLSearchParamsToObject(
   return result;
 }
 
+const ARCHLINUX_MIRROR_URL =
+  import.meta.env?.VITE_ARCHLINUX_MIRROR_URL ??
+  globalThis.process?.env?.VITE_ARCHLINUX_MIRROR_URL ??
+  'https://archive.archlinux.org';
+
+const CDN_MIRROR_URL =
+  import.meta.env?.VITE_CDN_MIRROR_URL ??
+  globalThis.process?.env?.VITE_CDN_MIRROR_URL ??
+  'http://localhost:5862';
+
 /**
- * Returns the download mirror URL for CachyOS or Arch Linux packages.
+ * Returns the download mirror URL for a package.
+ * Configure via VITE_ARCHLINUX_MIRROR_URL and VITE_CDN_MIRROR_URL env vars.
  *
  * @returns The download mirror URL as a string.
- * @example https://cdn77.cachyos.org/repo/x86_64/cachyos/64gram-desktop-1%3A1.1.58-2-x86_64.pkg.tar.zst
- * @example https://archlinux.cachyos.org/repo/extra/os/x86_64/cargo-rdme-1.5.0-1-x86_64.pkg.tar.zst
  */
 export function getDownloadMirrorUrl(pkg: PackageDetails): string {
   const {pkg_arch, pkg_name, pkg_version, repo_name} = pkg;
@@ -51,9 +60,9 @@ export function getDownloadMirrorUrl(pkg: PackageDetails): string {
     repo_name as PackageRepo
   );
   if (isArchlinux) {
-    return `https://archlinux.cachyos.org/repo/${repo_name}/os/${arch}/${pkgFile}`;
+    return `${ARCHLINUX_MIRROR_URL}/repo/${repo_name}/os/${arch}/${pkgFile}`;
   } else {
-    return `https://cdn77.cachyos.org/repo/${arch}/${repo_name}/${pkgFile}`;
+    return `${CDN_MIRROR_URL}/repo/${arch}/${repo_name}/${pkgFile}`;
   }
 }
 

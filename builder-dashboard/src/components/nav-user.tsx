@@ -29,7 +29,7 @@ export function NavUser({
   user: UserData;
 }>) {
   const {isMobile} = useSidebar();
-  const profileImage = user.profile_picture_url ?? '/cachyos-logo.svg';
+  const profileImage = user.profile_picture_url ?? '/logo.svg';
   const fallbackName = user.displayName
     .split(' ')
     .map(n => n.charAt(0))

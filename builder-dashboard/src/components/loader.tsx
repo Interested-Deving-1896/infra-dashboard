@@ -17,12 +17,12 @@ export default function Loader({
 export function LogoLoader({animate = true}: Readonly<{animate?: boolean}>) {
   return (
     <Image
-      alt="CachyOS Logo"
+      alt="Logo"
       className="invert dark:invert-0 motion-safe:data-[animate=true]:animate-pulse"
       data-animate={animate}
       height={128}
       priority
-      src="/cachyos-logo-white.svg"
+      src="/logo-white.svg"
       width={128}
     />
   );

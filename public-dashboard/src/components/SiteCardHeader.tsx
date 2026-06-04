@@ -20,7 +20,7 @@ export function SiteCardHeader({
       <div className="flex justify-between items-start">
         <div className="flex items-start sm:items-center space-x-4">
           <Link className="shrink-0" to="/">
-            <img alt="CachyOS Logo" className="h-12 w-12" src={icon} />
+            <img alt="Logo" className="h-12 w-12" src={icon} />
           </Link>
           <div className="space-y-1 mt-0.5">
             <CardTitle>{title}</CardTitle>

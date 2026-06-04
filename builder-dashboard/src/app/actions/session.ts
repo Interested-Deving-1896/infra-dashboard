@@ -62,7 +62,7 @@ export async function getLoggedInUser(fullProfile = false) {
     session.displayName = user.display_name ?? user.username;
     session.username = user.username;
     session.profile_picture_url =
-      user.profile_picture_url ?? '/cachyos-logo.svg';
+      user.profile_picture_url ?? '/logo.svg';
     await session.save();
     if (fullProfile) {
       user.scopes = session.tokens[session.serverIndex].scopes;
@@ -147,7 +147,7 @@ export async function login(loginRequest: LoginRequest) {
     session.username = data.data.username;
     session.tokens = cachyBuilderClient.apiTokens;
     session.serverIndex = cachyBuilderClient.serverIdx;
-    session.profile_picture_url = '/cachyos-logo.svg';
+    session.profile_picture_url = '/logo.svg';
     await session.save();
     return {
       success: validServers.length > 0,

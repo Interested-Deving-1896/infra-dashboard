@@ -17,8 +17,9 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
 });
 
-const description = 'CachyOS Builder Dashboard';
-const name = 'CachyOS Builder Dashboard';
+const description =
+  process.env.NEXT_PUBLIC_APP_DESCRIPTION ?? 'Builder Dashboard';
+const name = process.env.NEXT_PUBLIC_APP_NAME ?? 'Builder Dashboard';
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   description,
   openGraph: {
     description,
-    emails: ['admin@cachyos.org', 'admin@soulharsh007.dev'],
+    emails: [],
     locale: 'en_US',
     siteName: name,
     title: name,

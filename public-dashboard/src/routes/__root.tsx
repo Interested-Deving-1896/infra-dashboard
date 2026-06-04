@@ -26,7 +26,7 @@ export const Route = createRootRouteWithContext<{
         content: import.meta.env.VITE_APP_VERSION || 'development',
         name: 'version',
       },
-      {title: 'CachyOS'},
+      {title: import.meta.env.VITE_APP_NAME || 'Package Dashboard'},
     ],
   }),
   shellComponent: RootDocument,

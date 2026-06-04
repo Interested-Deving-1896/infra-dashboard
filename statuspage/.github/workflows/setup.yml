@@ -72,4 +72,4 @@ jobs:
           publish_dir: "site/status-page/__sapper__/export/"
           force_orphan: "false"
           user_name: "Cachy uptime-bot"
-          user_email: "uptime-bot@cachyos.org"
+          user_email: "uptime-bot@example.com"

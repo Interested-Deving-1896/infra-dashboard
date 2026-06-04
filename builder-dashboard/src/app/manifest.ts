@@ -3,7 +3,7 @@ import {MetadataRoute} from 'next';
 export default function manifest(): MetadataRoute.Manifest {
   return {
     background_color: '#ffffff',
-    description: 'CachyOS Builder Dashboard',
+    description: process.env.NEXT_PUBLIC_APP_DESCRIPTION ?? 'Builder Dashboard',
     display: 'standalone',
     icons: [
       {
@@ -12,8 +12,8 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/x-icon',
       },
     ],
-    name: 'CachyOS Builder Dashboard',
-    short_name: 'CachyOS Builder Dashboard',
+    name: process.env.NEXT_PUBLIC_APP_NAME ?? 'Builder Dashboard',
+    short_name: process.env.NEXT_PUBLIC_APP_SHORT_NAME ?? 'Builder Dashboard',
     start_url: '/',
     theme_color: '#3b82f6',
   };

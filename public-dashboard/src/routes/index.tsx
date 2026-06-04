@@ -46,17 +46,18 @@ export const Route = createFileRoute('/')({
       staleTime: 60_000,
     });
   },
-  head: () => ({meta: [{title: 'CachyOS | Package Search'}]}),
+  head: () => ({meta: [{title: `${import.meta.env.VITE_APP_NAME || 'Package Dashboard'} | Package Search`}]}),
 });
 
 function HomePage() {
+  const appName = import.meta.env.VITE_APP_NAME || 'Package Dashboard';
   return (
     <main className="container mx-auto p-2 sm:p-4 md:p-8">
       <Card>
         <SiteCardHeader
-          description="Find packages across all CachyOS repositories."
+          description={`Find packages across all ${appName} repositories.`}
           navTarget="mirrors"
-          title="CachyOS Package Repository Search"
+          title={`${appName} Package Repository Search`}
         />
         <CardContent>
           <PackageSearch />

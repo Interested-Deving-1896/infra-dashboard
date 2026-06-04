@@ -60,7 +60,7 @@ export function UserProfileForm({
     [user]
   );
   const profileImage = useMemo(
-    () => user.profile_picture_url ?? '/cachyos-logo.svg',
+    () => user.profile_picture_url ?? '/logo.svg',
     [user]
   );
   const form = useForm<NonNullableUserProfile>({
@@ -69,7 +69,7 @@ export function UserProfileForm({
       display_desc: user.display_desc ?? '',
       display_name: user.display_name ?? user.username,
       id: user.id,
-      profile_picture_url: user.profile_picture_url ?? '/cachyos-logo.svg',
+      profile_picture_url: user.profile_picture_url ?? '/logo.svg',
       scopes: user.scopes?.length ? user.scopes : [],
       // eslint-disable-next-line react-hooks/purity
       updated: user.updated ?? Date.now(),
@@ -263,7 +263,7 @@ export function UserProfileForm({
                             {canEditProfile && (
                               <Button
                                 onClick={() => {
-                                  field.onChange('/cachyos-logo.svg');
+                                  field.onChange('/logo.svg');
                                 }}
                                 size="icon"
                                 type="button"

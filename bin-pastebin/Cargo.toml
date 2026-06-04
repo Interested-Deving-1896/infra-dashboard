@@ -4,7 +4,7 @@ version = "2.2.2"
 authors = ["Gunwant Jain <mail@wantguns.dev>", "tretrauit <tretrauit@cachyos.org>"]
 edition = "2021"
 build = "build.rs"
-repository = "https://github.com/CachyOS/bin-pastebin/"
+repository = "https://github.com/Interested-Deving-1896/cachy-bin-pastebin"
 
 [dependencies]
 rand = "0.8"

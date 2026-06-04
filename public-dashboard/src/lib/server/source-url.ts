@@ -25,22 +25,34 @@ export async function getSourceUrl(
     return `https://gitlab.archlinux.org/archlinux/packaging/packages/${pkg.pkg_base}/-/tree/${archPkgVersion}`;
   }
 
-  for (const repo of ['linux-cachyos', 'CachyOS-PKGBUILDS']) {
+  // PKGBUILD_REPOS: comma-separated list of "owner/repo" pairs to search for PKGBUILDs.
+  // The first entry is treated as the kernel repo (matched by pkg_name prefix).
+  // Defaults to empty (no PKGBUILD source links shown) when not configured.
+  const pkgbuildRepos = (
+    process.env.PKGBUILD_REPOS ?? ''
+  )
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  for (const ownerRepo of pkgbuildRepos) {
+    const [owner, repo] = ownerRepo.split('/');
+    if (!owner || !repo) continue;
     try {
-      const cachyosPaths: PkgbuildMap = await fetchPkgbuilds({repo});
-      const pkgbuildPath =
-        repo === 'linux-cachyos'
-          ? Object.entries(cachyosPaths)
-              .filter(([repoPkg]) => pkg.pkg_name.startsWith(repoPkg))
-              .map(([, path]) => path)
-              .at(0)
-          : cachyosPaths[pkg.pkg_name];
+      const pkgbuildPaths: PkgbuildMap = await fetchPkgbuilds({repo});
+      const isKernelRepo = pkgbuildRepos.indexOf(ownerRepo) === 0;
+      const pkgbuildPath = isKernelRepo
+        ? Object.entries(pkgbuildPaths)
+            .filter(([repoPkg]) => pkg.pkg_name.startsWith(repoPkg))
+            .map(([, path]) => path)
+            .at(0)
+        : pkgbuildPaths[pkg.pkg_name];
 
       if (pkgbuildPath) {
-        return `https://github.com/CachyOS/${repo}/tree/master/${pkgbuildPath}`;
+        return `https://github.com/${owner}/${repo}/tree/master/${pkgbuildPath}`;
       }
     } catch (error) {
-      console.error(`Failed to fetch ${repo}:`, error);
+      console.error(`Failed to fetch ${ownerRepo}:`, error);
     }
   }
 

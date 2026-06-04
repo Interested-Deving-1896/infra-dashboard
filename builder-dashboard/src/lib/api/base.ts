@@ -36,20 +36,38 @@ export function isAccessibleToken(token: ServerToken): boolean {
   return token.token !== '' && token.scopes.length > 0;
 }
 
-export const SERVERS = [
+// Server list is driven by environment variables at build time.
+// Set BUILDER_SERVERS as a JSON array, e.g.:
+//   [{"name":"Primary","description":"Primary Builder","url":"https://builder-api.example.com/api","default":true}]
+// Falls back to localhost for local development.
+function parseServers() {
+  try {
+    const raw =
+      process.env.BUILDER_SERVERS ??
+      process.env.NEXT_PUBLIC_BUILDER_SERVERS;
+    if (raw) return JSON.parse(raw) as typeof DEFAULT_SERVERS;
+  } catch {
+    // fall through to default
+  }
+  return DEFAULT_SERVERS;
+}
+
+const DEFAULT_SERVERS = [
   {
     default: true,
-    description: 'Zen4 Builder',
-    name: 'CachyOS Zen4',
-    url: 'https://builder-api-1.cachyos.org/api',
+    description: 'Primary Builder',
+    name: 'Builder Primary',
+    url: process.env.BUILDER_API_URL_PRIMARY ?? 'http://localhost:8080/api',
   },
   {
     default: false,
-    description: 'Standard Builder',
-    name: 'CachyOS Standard',
-    url: 'https://builder-api.cachyos.org/api',
+    description: 'Secondary Builder',
+    name: 'Builder Secondary',
+    url: process.env.BUILDER_API_URL_SECONDARY ?? 'http://localhost:8081/api',
   },
 ];
+
+export const SERVERS = parseServers();
 
 export class BaseClient {
   public static readonly servers = SERVERS;
@@ -95,7 +113,7 @@ export class BaseClient {
         'Content-Type': 'application/json',
         'User-Agent':
           clientHeaders.get('User-Agent') ??
-          'CachyBuilderDashboardProxyServer/1.0.0',
+          'BuilderDashboardProxyServer/1.0.0',
         'X-Forwarded-For':
           clientHeaders.get('CF-Connecting-IP') ??
           clientHeaders.get('X-Forwarded-For') ??

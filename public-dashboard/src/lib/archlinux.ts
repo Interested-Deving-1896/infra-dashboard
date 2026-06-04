@@ -20,7 +20,7 @@ async function fetchAurPkgList(): Promise<string[]> {
 
   const res = await fetch(url, {
     headers: {
-      'User-Agent': 'CachyOS/public-dashboard',
+      'User-Agent': 'infra-dashboard/public-dashboard',
     },
   });
 

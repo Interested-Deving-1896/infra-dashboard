@@ -22,7 +22,7 @@ export function HeaderBreadcrumbs() {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem className="hidden md:block">
-          <BreadcrumbPage>CachyOS Builder Dashboard</BreadcrumbPage>
+          <BreadcrumbPage>{process.env.NEXT_PUBLIC_APP_NAME ?? 'Builder Dashboard'}</BreadcrumbPage>
         </BreadcrumbItem>
         {breadCrumbs.map(breadCrumb => (
           <Fragment key={breadCrumb}>

@@ -180,10 +180,10 @@ function ServerLogo({size}: {size: 'lg' | 'sm'}) {
   const dim = size === 'lg' ? 'size-7' : 'size-4';
   return (
     <Image
-      alt="CachyOS Logo"
+      alt="Logo"
       className={dim}
       height={32}
-      src="/cachyos-logo.svg"
+      src="/logo.svg"
       width={32}
     />
   );

@@ -8,18 +8,19 @@ import {getMirrorsData} from '@/lib/server/actions';
 export const Route = createFileRoute('/mirrors')({
   component: MirrorsPage,
   loader: () => getMirrorsData(),
-  head: () => ({meta: [{title: 'CachyOS | Mirrors List'}]}),
+  head: () => ({meta: [{title: `${import.meta.env.VITE_APP_NAME || 'Package Dashboard'} | Mirrors List`}]}),
 });
 
 function MirrorsPage() {
   const {baselines, mirrors} = Route.useLoaderData();
+  const appName = import.meta.env.VITE_APP_NAME || 'Package Dashboard';
   return (
     <main className="container mx-auto p-2 sm:p-4 md:p-8">
       <Card>
         <SiteCardHeader
-          description="List of CachyOS package repository mirrors."
+          description={`List of ${appName} package repository mirrors.`}
           navTarget="packages"
-          title="CachyOS Package Repository Mirrors"
+          title={`${appName} Package Repository Mirrors`}
         />
         <CardContent>
           <MirrorslistTable baselines={baselines} mirrors={mirrors} />

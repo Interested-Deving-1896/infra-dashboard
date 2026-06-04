@@ -113,11 +113,11 @@ export const Route = createFileRoute('/package/$repo/$arch/$pkgname')({
     const repo = decodeURIComponent(params.repo);
     const title = `${pkgname} - ${repo} (${arch})`;
     const pkg = (loaderData as LoaderData | undefined)?.package;
-    if (!pkg) return {meta: [{title: `CachyOS | ${title}`}]};
+    if (!pkg) return {meta: [{title: `${import.meta.env.VITE_APP_NAME || "Package Dashboard"} | ${title}`}]};
     const description = pkg.pkg_desc || `Details for ${pkgname}`;
     return {
       meta: [
-        {title: `CachyOS | ${title}`},
+        {title: `${import.meta.env.VITE_APP_NAME || "Package Dashboard"} | ${title}`},
         {content: description, name: 'description'},
         {
           content: [

@@ -9,7 +9,7 @@ import Loader from '@/components/loader';
 export default function Page() {
   const router = useRouter();
   const [status, setStatus] = useState(
-    'CachyOS Builder Dashboard is loading...'
+    'Builder Dashboard is loading...'
   );
   useEffect(() => {
     let redirectTimeout: null | ReturnType<typeof setTimeout> = null;

@@ -1,13 +1,14 @@
 services:
-  public-repo-dashboard:
+  public-dashboard:
     build:
       context: .
       args:
-        - VITE_APP_VERSION=latest
-    container_name: public-repo-dashboard
+        - VITE_APP_VERSION=${VITE_APP_VERSION:-latest}
+    container_name: public-dashboard
+    env_file: ../.env
     environment:
       # URL of the upstream JSON API this dashboard wraps.
-      - VITE_ENDPOINT_URL=https://dashboard.cachyos.org/api
+      # - VITE_ENDPOINT_URL=https://dashboard.example.com/api
       # Optional: set to 'redis' to enable the upstream JSON cache layer.
       # - CACHE=redis
       # - REDIS_URL=redis://redis:6379

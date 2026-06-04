@@ -1,4 +1,4 @@
-// thanks to https://github.com/CachyOS/builder-dashboard/blob/main/lib/fetcher.ts ;)
+// fetcher pattern adapted from builder-dashboard
 import {z} from 'zod';
 
 import {FetcherError} from '@/lib/errors';

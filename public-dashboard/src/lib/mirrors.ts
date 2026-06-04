@@ -5,7 +5,10 @@ import type {Mirror, RepoCheck, RepoStatus} from './types';
 
 export const MIRRORS_CACHE_KEY = 'mirrors:data';
 
-const PRIMARY_MIRROR_URL = 'https://build.cachyos.org/repo';
+const PRIMARY_MIRROR_URL =
+  import.meta.env?.VITE_PRIMARY_MIRROR_URL ??
+  globalThis.process?.env?.VITE_PRIMARY_MIRROR_URL ??
+  'http://localhost:5862/repo';
 const FETCH_TIMEOUT_MS = 2000;
 const SYNC_TOLERANCE_SECONDS = 3600;
 

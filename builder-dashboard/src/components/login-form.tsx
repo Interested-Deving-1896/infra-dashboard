@@ -105,18 +105,17 @@ export function LoginForm({className, ...props}: React.ComponentProps<'div'>) {
       <Card className="relative overflow-hidden">
         <CardHeader>
           <Image
-            alt="CachyOS Logo"
+            alt="Logo"
             className="invert dark:invert-0 mx-auto mb-4"
             height={128}
-            src="/cachyos-logo-white.svg"
+            src="/logo-white.svg"
             width={128}
           />
           <CardTitle className="text-center">
-            Login to your CachyOS Builder account
+            Login to your Builder account
           </CardTitle>
           <CardDescription>
-            Enter your email and password to access the CachyOS Builder
-            Dashboard.
+            Enter your email and password to access the Builder Dashboard.
           </CardDescription>
         </CardHeader>
         <CardContent>

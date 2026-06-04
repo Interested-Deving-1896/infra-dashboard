@@ -13,7 +13,7 @@ export type SessionData = {
 };
 
 export const sessionOptions: SessionOptions = {
-  cookieName: 'CACHY_BUILDER_SESSION',
+  cookieName: 'BUILDER_SESSION',
   cookieOptions: {
     secure: process.env.NODE_ENV === 'production',
   },
@@ -30,7 +30,7 @@ export const defaultSession: SessionData = {
   createdAt: Date.now(),
   displayName: '',
   isLoggedIn: false,
-  profile_picture_url: '/cachyos-logo.svg',
+  profile_picture_url: '/logo.svg',
   serverIndex: CachyBuilderClient.servers.findIndex(s => s.default),
   tokens: CachyBuilderClient.servers.map(s => ({
     description: s.description,
