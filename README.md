@@ -1,29 +1,76 @@
+[update-readmes]   Mode: rewrite — migrating to template structure...
 # infra-dashboard
 
-Unified infrastructure platform — status pages, mirror management, build dashboards, and pastebin.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/infra-dashboard)
 
-Config-driven and agnostic: works with any GitHub org, any mirror chain, any Linux distribution, any hardware architecture.
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-## Components
+## Architecture
 
-| Component | Description |
-|---|---|
-| `statuspage/` | Service status page |
-| `public-dashboard/` | Package search and browse UI |
-| `builder-dashboard/` | Build system dashboard |
-| `rate-mirrors/` | Mirror ranking CLI — multi-distro |
-| `mirrorlist-proxy/` | Cached mirrorlist proxy |
-| `bin-pastebin/` | Self-contained pastebin server |
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
+
+## Install
+
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
+
+```bash
+git clone https://github.com/Interested-Deving-1896/infra-dashboard.git
+cd infra-dashboard
+```
+
+## Usage
+
+<!-- Add usage examples here. This section is yours — the AI will not modify it. -->
 
 ## Configuration
 
+
 All org/distro-specific values live in `config/infra.toml`. See `config/infra.example.toml` for a full reference.
 
-## Getting Started
+## CI
 
-```bash
-cp config/infra.example.toml config/infra.toml
-# Edit config/infra.toml with your org and API settings
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/infra-dashboard`](https://github.com/Interested-Deving-1896/infra-dashboard) and mirrored through:
+
+```
+Interested-Deving-1896/infra-dashboard  ──►  OpenOS-Project-OSP/infra-dashboard  ──►  OpenOS-Project-Ecosystem-OOC/infra-dashboard
 ```
 
-Each component can be run independently or together via the root `docker-compose.yml`.
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
+
+## Contributors
+
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
+
+## Origins
+
+<!-- AI:start:origins -->
+_No dependency graph found. Run `generate-dep-graph.yml` to generate `dep-graph/origins.md`._
+<!-- AI:end:origins -->
+
+## Resources
+
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
+
+## License
+
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
