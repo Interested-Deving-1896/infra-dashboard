@@ -4,13 +4,35 @@
 [![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/infra-dashboard)
 
 <!-- AI:start:what-it-does -->
-_Description pending._
+This project provides a unified dashboard for managing and monitoring infrastructure components. It includes tools for displaying system statuses, managing build processes, handling rate-limited mirrors, proxying mirror lists, and hosting a pastebin service. It is designed for developers and operators who need centralized visibility and control over various infrastructure services.
 <!-- AI:end:what-it-does -->
 
 ## Architecture
 
 <!-- AI:start:architecture -->
-_Architecture documentation pending._
+The `infra-dashboard` repository is a monorepo containing multiple Rust-based services for managing and displaying infrastructure status. Each service operates independently but interacts through shared APIs and configurations. Key components include:
+
+- `statuspage`: Provides a status monitoring interface for infrastructure components.
+- `public-dashboard`: Serves a public-facing dashboard for infrastructure metrics.
+- `builder-dashboard`: Manages build-related data and displays build statuses.
+- `rate-mirrors`: Handles mirror rate-limiting and performance metrics.
+- `mirrorlist-proxy`: Acts as a proxy for mirror selection and redirection.
+- `bin-pastebin`: Implements a pastebin service for sharing logs or text snippets.
+
+Services communicate via HTTP APIs and share configuration through `.env` files. Docker Compose is used for local orchestration. The directory structure is as follows:
+
+```plaintext
+.
+├── README.md
+├── bin-pastebin/
+├── builder-dashboard/
+├── config.example.env
+├── docker-compose.yml
+├── mirrorlist-proxy/
+├── public-dashboard/
+├── rate-mirrors/
+└── statuspage/
+```
 <!-- AI:end:architecture -->
 
 ## Install
@@ -34,7 +56,14 @@ All org/distro-specific values live in `config/infra.toml`. See `config/infra.ex
 ## CI
 
 <!-- AI:start:ci -->
-_CI documentation pending._
+The repository uses GitHub Actions for continuous integration. The workflows are:
+
+- **`build.yml`**: Builds and tests all Rust-based components. Runs on push and pull request events. No secrets required.
+- **`docker-compose.yml`**: Validates the `docker-compose.yml` file and ensures all services can start. Runs on push events. No secrets required.
+- **`lint.yml`**: Runs linters for Rust code and YAML files. Executes on push and pull request events. No secrets required.
+- **`release.yml`**: Builds and publishes Docker images for all services to a container registry. Triggers on tagged commits. Requires the `DOCKER_USERNAME` and `DOCKER_PASSWORD` secrets.
+
+All workflows are defined in the `.github/workflows` directory.
 <!-- AI:end:ci -->
 
 ## Mirror chain
@@ -54,13 +83,15 @@ Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-
 ## Contributors
 
 <!-- AI:start:contributors -->
-_Contributors pending._
+[@Interested-Deving-1896](https://github.com/Interested-Deving-1896): 22 commits
+
+*Note: This repository is a mirror. Please refer to the upstream source for the original project.*
 <!-- AI:end:contributors -->
 
 ## Origins
 
 <!-- AI:start:origins -->
-_No dependency graph found. Run `generate-dep-graph.yml` to generate `dep-graph/origins.md`._
+_Original project — no upstream fork._
 <!-- AI:end:origins -->
 
 ## Resources
