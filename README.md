@@ -4,7 +4,7 @@
 [![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/infra-dashboard)
 
 <!-- AI:start:what-it-does -->
-This project provides a unified dashboard for managing and monitoring infrastructure components. It includes tools for tracking system status, managing mirrors, generating build reports, and hosting pastebin services. It is used by developers and operators to streamline infrastructure visibility and automate related workflows.
+This project provides a unified dashboard for managing and monitoring infrastructure components. It consolidates tools like status pages, public dashboards, builder dashboards, rate mirrors, mirror list proxies, and a binary pastebin into a single monorepo. It is designed for infrastructure operators and developers who need centralized visibility and control over distributed systems.
 <!-- AI:end:what-it-does -->
 
 ## Architecture
