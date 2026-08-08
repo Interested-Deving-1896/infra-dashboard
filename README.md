@@ -1,7 +1,8 @@
 [update-readmes]   Mode: rewrite — migrating to template structure...
 # infra-dashboard
 
-[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/infra-dashboard)
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/infra-dashboard) [![KDE Eco](https://img.shields.io/badge/KDE%20Eco-certified-brightgreen?logo=kde&logoColor=white&style=flat-square)](https://eco.kde.org/) [![Blue Angel](https://img.shields.io/badge/Blue%20Angel-DE--UZ%20215-0055a4?style=flat-square)](https://www.blauer-engel.de/en/certification/criteria) [![Energy](https://api.green-coding.io/v1/ci/badge/get?repo=Interested-Deving-1896%2Finfra-dashboard&branch=main&workflow=eco-audit.yml)](https://metrics.green-coding.io/ci-index.html)
+
 
 <!-- AI:start:what-it-does -->
 This project provides a unified dashboard for managing and monitoring infrastructure components. It consolidates tools like status pages, public dashboards, builder dashboards, rate mirrors, mirror list proxies, and a binary pastebin into a single monorepo. It is designed for infrastructure operators and developers who need centralized visibility and control over distributed systems.
@@ -99,6 +100,20 @@ _Original project — no upstream fork._
 <!-- AI:start:resources -->
 _No additional resource files found._
 <!-- AI:end:resources -->
+
+<!-- AI:start:accessibility -->
+This repo uses automated accessibility auditing via `check-accessibility.yml`.
+
+Checks include: CODEOWNERS ownership coverage, README screen-reader compatibility,
+WCAG 2.1 AA HTML compliance, audio overview (espeak-ng), and Braille output (liblouis).
+
+
+
+
+Run the [Check Accessibility](https://github.com/Interested-Deving-1896/infra-dashboard/actions/workflows/check-accessibility.yml)
+workflow to generate the first report and accessibility artifacts.
+See [DOCS/accessibility.md](https://github.com/Interested-Deving-1896/infra-dashboard/blob/main/DOCS/accessibility.md) for the full reference.
+<!-- AI:end:accessibility -->
 
 ## License
 
